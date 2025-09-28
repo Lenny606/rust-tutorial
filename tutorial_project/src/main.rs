@@ -134,12 +134,30 @@ fn main() {
     //STRING OBJECT
     let mut boat = String::new(); //mutable string object
     let boat_name = String::from("Jenny");
+    let mut new_text = String::new();
+    new_text =  String::from("Distro");
+    fn print_text(boat_name: String, dog: &str) -> String {
+        let text = format!("Im owner of {0}, will be sailing with my {1}", boat_name, dog);
+        println!("{}", text);
+        return text;
+        print_length(text);
+        
 
-    let text = format!("Im owner of {0}, will be sailing with my {1}", boat_name, dog);
-    println!("{}", text);
+        fn print_length(text: String){
+            let length = text.len();
+
+        }
+
+
+    }
+
+    fn print_mutable_text(text: &mut String){
+
+       *text = String::from("sjbevbks");
+
+    }
 
     //Methods, more in docs (replace, split ...)
-    let length = text.len();
     boat.push('B');//1 Char only
     boat.push_str("New Name");
 
@@ -155,4 +173,6 @@ fn main() {
     // << -> left shift
     // >> -> right shift
 
+    print_text(boat_name,dog); // borrowing value
+    print_mutable_text(&mut new_text);
 }
