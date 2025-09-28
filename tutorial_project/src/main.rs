@@ -37,8 +37,8 @@
 //!    - Demonstrates positional and named arguments in formatting strings with `println!`.
 //!    - Demonstrates binary, hexadecimal, and octal formatting.
 //!    - Prints arrays using `Debug` formatting.
+#[allow(unused_variables)]
 use std::io;
-
 /// The `main` function serves as the entry point of the program.
 ///
 /// # Overview
@@ -113,4 +113,16 @@ fn main() {
     println!("Binary: {:b}, hex: {:x}, octa: {:o}", 50, 50, 50);
     ///Debug
     println!("Array {:?}", [1, 2, 3]);
+
+
+    //variables
+    let name = "Tom"; //immutable
+    let name = "Alex"; //but can shadow variable
+    let mut name_second = "Dave";
+    let (a,b,c) = (12, "styringh", 5);//multiple
+
+    //Character
+    let char_b ='B';//single quote
+    let smile = '\u{1F600}'; //unicode
+    println!("Smile Emoji: {}", smile)
 }
