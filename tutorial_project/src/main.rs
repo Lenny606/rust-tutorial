@@ -39,7 +39,11 @@
 //!    - Prints arrays using `Debug` formatting.
 #[allow(unused_variables)]
 #[allow(unused_assignments)]
-use std::io;
+mod formatting;
+mod input;
+mod basics;
+mod ownership;
+mod operators;
 /// The `main` function serves as the entry point of the program.
 ///
 /// # Overview
@@ -81,98 +85,18 @@ use std::io;
 /// - Ensure the `std::io` module is imported for input functionality.
 /// - This example is suitable for demonstrating basic Rust I/O operations and formatted printing.
 fn main() {
-    //! # main function
-    //! ```
-    //! create var with empty string
-    //! ```
-    //! return user input
-    let mut user_input = String::new();
-    println!("Write smthig");
+    // Optional: run input demo (uncomment to try interactive input)
+    // input::demo_input();
 
-    // match io::stdin().read_line(&mut user_input) {
-    //     Ok(_) => {
-    //         println!("You wrote: {user_input}");
-    //     }
-    //     Err(error) => {
-    //         println!("Error: bad request {}", error);
-    //     }
-    // }
+    // Formatting examples
+    formatting::demo_formatting();
 
-    /// printing
-    println!("Hello, world!");
-    println!("Hello, {}!", "Alex");
-    println!("Hello, {}, {}!", "Alex", "Tom");
-    ///positinal
-    println!("Hello {0}, {1}, {0} again!", "Alex", "Tom");
-    ///naming
-    println!(
-        "Hello {firstName}, {secondName}!",
-        firstName = "Alex",
-        secondName = "Tom"
-    );
-    ///Traits
-    println!("Binary: {:b}, hex: {:x}, octa: {:o}", 50, 50, 50);
-    ///Debug
-    println!("Array {:?}", [1, 2, 3]);
+    // Basics: variables, chars, tuples
+    basics::demo_basics();
 
+    // Ownership and Strings
+    ownership::demo_ownership();
 
-    //variables
-    let name = "Tom"; //immutable
-    let name = "Alex"; //but can shadow variable
-    let mut name_second = "Dave";
-    let (a,b,c) = (12, "styringh", 5);//multiple
-
-    //Character
-    let char_b ='B';//single quote
-    let smile = '\u{1F600}'; //unicode
-    println!("Smile Emoji: {}", smile);
-
-    //STRING SLICE
-    let cat = "CAT";//immutable!! points to memory
-    let dog: &'static str = "DOG"; //static cuz scope specific
-
-    //STRING OBJECT
-    let mut boat = String::new(); //mutable string object
-    let boat_name = String::from("Jenny");
-    let mut new_text = String::new();
-    new_text =  String::from("Distro");
-    fn print_text(boat_name: String, dog: &str) -> String {
-        let text = format!("Im owner of {0}, will be sailing with my {1}", boat_name, dog);
-        println!("{}", text);
-        return text;
-        print_length(text);
-        
-
-        fn print_length(text: String){
-            let length = text.len();
-
-        }
-
-
-    }
-
-    fn print_mutable_text(text: &mut String){
-
-       *text = String::from("sjbevbks");
-
-    }
-
-    //Methods, more in docs (replace, split ...)
-    boat.push('B');//1 Char only
-    boat.push_str("New Name");
-
-    //CONSTANTS
-    const URL: &str = "https://www.google.com/"; //TYPE MAndatory, no shadowing
-
-    //OPERATORS
-    //BITWISE - converts to bits
-    // & -> AND
-    // | -> OR
-    // ^ -> XOR
-    // ! -> NOT
-    // << -> left shift
-    // >> -> right shift
-
-    print_text(boat_name,dog); // borrowing value
-    print_mutable_text(&mut new_text);
+    // Constants and bitwise operators
+    operators::demo_operators();
 }
