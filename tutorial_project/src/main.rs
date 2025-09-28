@@ -38,6 +38,7 @@
 //!    - Demonstrates binary, hexadecimal, and octal formatting.
 //!    - Prints arrays using `Debug` formatting.
 #[allow(unused_variables)]
+#[allow(unused_assignments)]
 use std::io;
 /// The `main` function serves as the entry point of the program.
 ///
@@ -88,14 +89,14 @@ fn main() {
     let mut user_input = String::new();
     println!("Write smthig");
 
-    match io::stdin().read_line(&mut user_input) {
-        Ok(_) => {
-            println!("You wrote: {user_input}");
-        }
-        Err(error) => {
-            println!("Error: bad request {}", error);
-        }
-    }
+    // match io::stdin().read_line(&mut user_input) {
+    //     Ok(_) => {
+    //         println!("You wrote: {user_input}");
+    //     }
+    //     Err(error) => {
+    //         println!("Error: bad request {}", error);
+    //     }
+    // }
 
     /// printing
     println!("Hello, world!");
@@ -124,5 +125,21 @@ fn main() {
     //Character
     let char_b ='B';//single quote
     let smile = '\u{1F600}'; //unicode
-    println!("Smile Emoji: {}", smile)
+    println!("Smile Emoji: {}", smile);
+
+    //STRING SLICE
+    let cat = "CAT";//immutable!! points to memory
+    let dog: &'static str = "DOG"; //static cuz scope specific
+
+    //STRING OBJECT
+    let mut boat = String::new(); //mutable string object
+    let boat_name = String::from("Jenny");
+
+    let text = format!("Im owner of {0}, will be sailing with my {1}", boat_name, dog);
+    println!("{}", text);
+
+    //Methods, more in docs (replace, split ...)
+    let length = text.len();
+    boat.push('B');//1 Char only
+    boat.push_str("New Name")
 }
