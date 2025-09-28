@@ -141,5 +141,18 @@ fn main() {
     //Methods, more in docs (replace, split ...)
     let length = text.len();
     boat.push('B');//1 Char only
-    boat.push_str("New Name")
+    boat.push_str("New Name");
+
+    //CONSTANTS
+    const URL: &str = "https://www.google.com/"; //TYPE MAndatory, no shadowing
+
+    //OPERATORS
+    //BITWISE - converts to bits
+    // & -> AND
+    // | -> OR
+    // ^ -> XOR
+    // ! -> NOT
+    // << -> left shift
+    // >> -> right shift
+
 }
